@@ -56,39 +56,34 @@ Company VPN: jdoe / vpnsecure!
 
 ---
 
-## Related Queries:
+Related Queries:
 
-// Installer name == tor-browser-windows-x86_64-portable-(version).exe
-// Detect the installer being downloaded
+// Detect download of AnyDesk installer
 DeviceFileEvents
-| where FileName startswith "tor"
+| where FileName has "AnyDesk"
+| project Timestamp, DeviceName, FileName, FolderPath, ActionType
 
-// TOR Browser being silently installed
-// Take note of two spaces before the /S (I don't know why)
+// Detect AnyDesk being launched in portable mode
 DeviceProcessEvents
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.0.1.exe  /S"
-| project Timestamp, DeviceName, ActionType, FileName, ProcessCommandLine
+| where ProcessCommandLine contains "--portable"
+| where FileName == "AnyDesk.exe"
+| project Timestamp, DeviceName, AccountName, ProcessCommandLine
 
-// TOR Browser or service was successfully installed and is present on the disk
+// Detect creation/deletion of bait file
 DeviceFileEvents
-| where FileName has_any ("tor.exe", "firefox.exe")
-| project  Timestamp, DeviceName, RequestAccountName, ActionType, InitiatingProcessCommandLine
+| where FileName contains "client-passwords.txt"
+| project Timestamp, DeviceName, FileName, ActionType
 
-// TOR Browser or service was launched
-DeviceProcessEvents
-| where ProcessCommandLine has_any("tor.exe","firefox.exe")
-| project  Timestamp, DeviceName, AccountName, ActionType, ProcessCommandLine
+// Detect creation of AnyDesk config files (optional persistence)
+DeviceFileEvents
+| where FileName in~ ("service.conf", "ad.ini")
+| project Timestamp, DeviceName, FileName, FolderPath, ActionType
 
-// TOR Browser or service is being used and is actively creating network connections
+// Detect outbound connections by AnyDesk
 DeviceNetworkEvents
-| where InitiatingProcessFileName in~ ("tor.exe", "firefox.exe")
-| where RemotePort in (9001, 9030, 9040, 9050, 9051, 9150)
-| project Timestamp, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl
-| order by Timestamp desc
+| where InitiatingProcessFileName == "AnyDesk.exe"
+| project Timestamp, DeviceName, InitiatingProcessAccountName, RemoteIP, RemotePort, RemoteUrl
 
-// User shopping list was created and, changed, or deleted
-DeviceFileEvents
-| where FileName contains "shopping-list.txt"
 
 ---
 
