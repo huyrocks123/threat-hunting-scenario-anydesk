@@ -56,28 +56,6 @@ Company VPN: jdoe / vpnsecure!
 
 ---
 
-## Tables Used to Detect IoCs:
-
-| **Parameter**         | **Description**                                                                 |
-|-----------------------|---------------------------------------------------------------------------------|
-| **Name**              | DeviceFileEvents                                                               |
-| **Info**              | https://learn.microsoft.com/en-us/defender-xdr/devicefileevents-table          |
-| **Purpose**           | Detects AnyDesk download, config file creation, and the bait file deletion.    |
-
-| **Parameter**         | **Description**                                                                 |
-|-----------------------|---------------------------------------------------------------------------------|
-| **Name**              | DeviceProcessEvents                                                            |
-| **Info**              | https://learn.microsoft.com/en-us/defender-xdr/deviceprocessevents-table       |
-| **Purpose**           | Detects execution of AnyDesk in portable mode.                                 |
-
-| **Parameter**         | **Description**                                                                 |
-|-----------------------|---------------------------------------------------------------------------------|
-| **Name**              | DeviceNetworkEvents                                                            |
-| **Info**              | https://learn.microsoft.com/en-us/defender-xdr/devicenetworkevents-table       |
-| **Purpose**           | Identifies AnyDesk’s outbound connections, especially to known IPs/domains.    |
-
----
-
 ## Related Queries:
 
 ```kql
