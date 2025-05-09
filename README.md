@@ -57,6 +57,7 @@ Company VPN: jdoe / vpnsecure!
 ---
 
 ## Related Queries:
+
 // Detect download of AnyDesk installer
 DeviceFileEvents
 | where FileName has "AnyDesk"
@@ -82,6 +83,7 @@ DeviceFileEvents
 DeviceNetworkEvents
 | where InitiatingProcessFileName == "AnyDesk.exe"
 | project Timestamp, DeviceName, InitiatingProcessAccountName, RemoteIP, RemotePort, RemoteUrl
+
 
 ---
 
