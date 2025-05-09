@@ -59,27 +59,32 @@ Company VPN: jdoe / vpnsecure!
 ## Related Queries:
 
 // Detect download of AnyDesk installer
+
 DeviceFileEvents
 | where FileName has "AnyDesk"
 | project Timestamp, DeviceName, FileName, FolderPath, ActionType
 
 // Detect AnyDesk being launched in portable mode
+
 DeviceProcessEvents
 | where ProcessCommandLine contains "--portable"
 | where FileName == "AnyDesk.exe"
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 
 // Detect creation/deletion of bait file
+
 DeviceFileEvents
 | where FileName contains "client-passwords.txt"
 | project Timestamp, DeviceName, FileName, ActionType
 
 // Detect creation of AnyDesk config files
+
 DeviceFileEvents
 | where FileName in~ ("service.conf", "ad.ini")
 | project Timestamp, DeviceName, FileName, FolderPath, ActionType
 
 // Detect outbound connections made by AnyDesk
+
 DeviceNetworkEvents
 | where InitiatingProcessFileName == "AnyDesk.exe"
 | project Timestamp, DeviceName, InitiatingProcessAccountName, RemoteIP, RemotePort, RemoteUrl
