@@ -56,14 +56,6 @@ Company VPN: jdoe / vpnsecure!
 
 ---
 
-3. Enabled unattended access (optional/simulated):
-- Created `service.conf` or `ad.ini` in the installation directory with auto-login details.
-4. Connected to the device from an external IP using the AnyDesk ID.
-5. Created a text file on the desktop titled `client-passwords.txt` as bait for exfiltration.
-6. Deleted the text file and closed AnyDesk.
-
----
-
 ## Tables Used to Detect IoCs:
 
 | **Parameter**         | **Description**                                                                 |
