@@ -34,7 +34,8 @@ DeviceFileEvents
 | project Timestamp, DeviceName, FileName, FolderPath, ActionType
 ```
 
-<img width="830" alt="Screenshot 2025-05-10 at 11 29 31 AM" src="https://github.com/user-attachments/assets/810a193c-2cbb-4f3e-95da-5bb05be512ab" />
+<img width="809" alt="Screenshot 2025-05-10 at 12 16 00 PM" src="https://github.com/user-attachments/assets/a9c9882d-05ad-4017-9c9b-b917aa34c46d" />
+
 
 ---
 
