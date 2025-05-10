@@ -17,10 +17,7 @@
 [security]
 password=Secret123
 4. Connect to the Device Remotely (Simulated):
-   - Note the AnyDesk ID displayed on the screen (9-digit number).
-   - If you have a second device, install AnyDesk there and enter the ID to initiate a remote connection.
-   - Accept the connection manually on the test machine (unless unattended access is properly configured).
-   - Alternatively, simulate this step by keeping AnyDesk running and generating network logs by leaving the application open for several minutes — this will still create relevant entries in DeviceNetworkEvents.
+   - Simulated this step by keeping AnyDesk running and generating network logs by leaving the application open for several minutes — this will still create relevant entries in DeviceNetworkEvents.
 5. Create a Bait File for Exfiltration Simulation:
    - On the Desktop, create a text file named: client-passwords.txt
    - Open the file and add fake content to simulate sensitive information:
