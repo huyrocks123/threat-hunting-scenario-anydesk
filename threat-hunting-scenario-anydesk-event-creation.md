@@ -3,16 +3,16 @@
 
 ## Steps the "Bad Actor" took Create Logs and IoCs:
 1. Download AnyDesk (Portable Installer):
-   - Open a web browser on your test machine.
+   - Open a web browser on the virtual machine, "huy".
    - Navigate to the official AnyDesk download link: https://download.anydesk.com/AnyDesk.exe
-   - Save the file to a location like your Downloads folder or directly to the Desktop.
+   - Save the file to Downloads folder.
 2. Run AnyDesk in Portable Mode (No Installation Required):
-   - Open Command Prompt or PowerShell and navigate to the folder where you downloaded AnyDesk.exe. For example: cd "C:\Users\huy\Downloads"
+   - Open Command Prompt and navigate to the Downloads folder (cd "C:\Users\huy\Downloads").
    - Run AnyDesk using the portable flag: .\AnyDesk.exe --portable
    - This will launch AnyDesk without installing it system-wide. It runs directly from memory or the current folder and creates minimal footprints.
 3. Enable Unattended Access (Optional / Simulated Configuration):
-   - While AnyDesk is running, look for a newly created folder named AnyDesk in the same directory as the executable.
-   - Inside that folder, you can create a config file named **ad.ini** or **service.conf**
+   - Look for a newly created folder named AnyDesk in the Videos folder in File Explorer.
+   - Inside that folder, create a config file named **ad.ini**.
    - Add a basic simulated configuration like:
 [security]
 password=Secret123
@@ -27,8 +27,7 @@ Company VPN: jdoe / vpnsecure!
    - Save and close the file.
 6. Delete the Bait File and Close AnyDesk:
    - Right-click client-passwords.txt on the Desktop and delete it.
-   - Confirm that the file is sent to the Recycle Bin or permanently deleted (Shift + Delete).
-   - Close the AnyDesk application by right-clicking its tray icon or closing the window.
+   - Close the AnyDesk application by closing the window.
 
 ---
 
