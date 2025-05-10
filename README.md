@@ -23,7 +23,7 @@ Management has raised concerns about possible unauthorized use of remote access 
 
 ### 1. Detected download of the AnyDesk installer
 
-Used the DeviceFileEvents table to search for instances where a file with the name AnyDesk was downloaded or interacted with. A file named `AnyDesk.exe` was downloaded to the Downloads folder and renamed at 2025-05-10T14:43:13.6193179Z. The same file was deleted at 2025-05-10T14:43:23.1536209Z.
+Used the DeviceFileEvents table to search for instances where a file with the name AnyDesk was downloaded or interacted with. A file named `AnyDesk.lnk` was downloaded to the Downloads folder at 2025-05-10T14:50:08.8422854Z. The `AnyDesk.exe` file was deleted at 2025-05-10T14:43:23.1536209Z.
 
 **Query used to locate events:**
 
@@ -34,7 +34,8 @@ DeviceFileEvents
 | project Timestamp, DeviceName, FileName, FolderPath, ActionType
 ```
 
-<img width="809" alt="Screenshot 2025-05-10 at 12 16 00 PM" src="https://github.com/user-attachments/assets/a9c9882d-05ad-4017-9c9b-b917aa34c46d" />
+
+<img width="838" alt="Screenshot 2025-05-10 at 12 17 20 PM" src="https://github.com/user-attachments/assets/8c3a798d-9453-4ec4-85e1-a7e3aad4a100" />
 
 
 ---
@@ -112,7 +113,7 @@ DeviceNetworkEvents
 
 ### 1. File Download - AnyDesk Installer
 
-- **Timestamp:** `2025-05-10T14:43:13.6193179Z`
+- **Timestamp:** `2025-05-10T14:50:08.8422854Z
 - **Event:** The user "employee" downloaded AnyDesk.exe to their Downloads folder.
 - **Action:** File download detected.
 - **File Path:** `C:\Users\huy\Downloads`
